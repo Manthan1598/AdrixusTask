@@ -1,0 +1,73 @@
+<!-- Input binding start -->
+<div class="container m-2">
+    <h5>Detecting Change to @Input Binding</h5>
+    <label>Enter Username : </label>
+    <input type="text" [(ngModel)]="username">
+    <app-input-binding [name]="username"></app-input-binding>
+</div>
+<!-- Input binding end -->
+
+<hr>
+
+<!-- ng-content start -->
+<app-ng-content>
+    <h5 class="taskHeading">Setup Projection Using ng-content</h5>
+    <p class="name">
+        <b>
+            John Doe
+        </b>
+    </p>
+    <p id="introduction">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book.
+    </p>
+</app-ng-content>
+<!-- ng-content end -->
+
+<hr>
+
+<!-- parent- child data passing between componet start -->
+<div class="container m-2">
+    <h5>Example Child and Parent Components</h5>
+    <!-- <p [(ngModel)]="parentMsg"></p> -->
+    <app-child (msgToParent)="receiveChildData($event)" [getMsgFromParent]="parentMsg"></app-child>
+    <p class="pl-2">Child saying : {{childMsg}}</p>
+</div>
+<!-- parent- child data passing between componet end -->
+
+<hr>
+
+<!-- Using a Custom Setter start -->
+<div class="container m-2">
+    <div class="row">
+        <div class="col-4">
+            <label>Enter your first name : </label>
+            <input class="form-control" [(ngModel)]="firstName">
+            <div class="mt-3">
+                <button class="btn btn-primary" (click)="getFirstName()">Get first name</button>
+            </div>
+            <div class="m-2">
+                <span>Getting first name from the custome setter service as list : </span>
+                <p *ngFor="let i of nameArray">
+                    {{i}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Using a Custom Setter end -->
+
+<hr>
+
+<div class="container m-2">
+    <h5>Using ngOnChanges</h5>
+    <div class="row">
+        <div class="col-4">
+            <input type="text" class="form-control" [(ngModel)]="simpleTextBox">
+        </div>
+        <div class="col-8">
+            <app-ng-onchange [simpleText]="simpleTextBox"></app-ng-onchange>
+        </div>
+    </div>
+</div>
